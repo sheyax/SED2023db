@@ -7,7 +7,7 @@ const User = require("../models/users");
 const Hackathon = require("../models/hackusers");
 
 // mail sending controller
-const mailSender = async(usermail, firstname) => {
+const mailSender = (usermail, firstname) => {
     const transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
@@ -16,18 +16,7 @@ const mailSender = async(usermail, firstname) => {
         },
     });
 
-    await new Promise((resolve, reject) => {
-        // verify connection configuration
-        transporter.verify(function(error, success) {
-            if (error) {
-                console.log(error);
-                reject(error);
-            } else {
-                console.log("Server is ready to take our messages");
-                resolve(success);
-            }
-        });
-    });
+
 
     var mailGenerator = new Mailgen({
         theme: "default",
@@ -70,9 +59,7 @@ const mailSender = async(usermail, firstname) => {
         html: emailBody,
     };
 
-
-    await new Promise((resolve, reject) => {
-        // send mail
+// send mail
         transporter.sendMail(mailOptions, function(error, info) {
             if (error) {
                 console.log(error);
@@ -81,7 +68,6 @@ const mailSender = async(usermail, firstname) => {
             }
         });
 
-    });
 
 
 };
