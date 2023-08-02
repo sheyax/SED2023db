@@ -5,11 +5,7 @@ require("./db");
 const app = express();
 var corsOptions = {
   credentials: true,
-  origin: [
-    "http://localhost:3000",
-    "http://localhost:5173",
-    "https://sedafrica.org",
-  ],
+  origin: ["https://sedafrica.org"],
 };
 
 app.use(
@@ -20,12 +16,7 @@ app.use(
 
 app.use(function (req, res, next) {
   // Website you wish to allow to connect
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "http://localhost:5173",
-    "http://localhost:3000",
-    "https://sedafrica.org"
-  );
+  res.setHeader("Access-Control-Allow-Origin", "https://sedafrica.org");
 
   // Request methods you wish to allow
   res.setHeader(
