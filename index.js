@@ -10,7 +10,7 @@ var corsOptions = {
 
 app.use(
   cors({
-    origin: "https://sedafrica.org",
+    origin: "https://h5hw7k-3000.csb.app/",
   })
 );
 
