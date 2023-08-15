@@ -5,21 +5,18 @@ require("./db");
 const app = express();
 var corsOptions = {
   credentials: true,
-  origin: ["https://sedafrica.org", "https://h5hw7k-3000.csb.app"],
+  origin: ["https://sedafrica.org"],
 };
 
 app.use(
   cors({
-    origin: ["https://sedafrica.org", "https://h5hw7k-3000.csb.app"],
+    origin: "https://sedafrica.org",
   })
 );
 
 app.use(function (req, res, next) {
   // Website you wish to allow to connect
-  res.setHeader("Access-Control-Allow-Origin", [
-    "https://sedafrica.org",
-    "https://h5hw7k-3000.csb.app",
-  ]);
+  res.setHeader("Access-Control-Allow-Origin", "https://sedafrica.org");
 
   // Request methods you wish to allow
   res.setHeader(
